@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: black;
+}
+.maintheme{
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 25px;
+}
+.game{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    letter-spacing: 10px;
+    margin-top: 10px;
+    font-size: 35px;
+
+}
+.button-section{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 35px;
+
+    
+    
+}
+.btn-start{
+    color: white;
+    background-color: rgb(53, 53, 245);
+    border: none;
+    padding: 5px 25px;
+    border-radius: 3px;
+}
+.btn-rgb{
+    color: white;
+    background-color: rgba(70, 69, 69, 0.683);
+    border: none;
+    padding: 5px 35px;
+    border-radius: 3px;
+}
+.btn-failandsucsess{
+    background-color: rgb(231, 235, 14);
+    border: none;
+    border-radius: 3px;
+    padding: 5px 40px;
+}
+.boxes, .boxes2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 25px;
+    
+}
+.color{
+    background-color: white;
+    padding: 55px;
+    border-radius: 10px;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: flex;
+}
