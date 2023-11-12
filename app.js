@@ -1,23 +1,51 @@
 let start = document.querySelector('.btn-start');
-let allDiv = document.querySelectorAll('.color');
+// let allDiv = document.querySelectorAll('.color');
 let rgbNum = document.querySelector('.btn-rgb')
 let failOrSuc = document.querySelector('.btn-failandsucsess')
 
+
+let easy = document.querySelector('.easy-button');
+let hard = document.querySelector('.hard-button');
+let boxes2 = document.querySelectorAll('.boxes2');
+
+let remove = document.querySelectorAll('.remove1');
+let append = document.querySelectorAll('.append1');
+
 // debugger; 
 
-let colors = [];
+
+
+
+
+
+easy.addEventListener('click', function(){
+    easy.style.backgroundColor = 'green';
+    easy.style.fontSize = '20px';
+    hard.style.fontSize = '10px';
+    remove.forEach(el=>
+        el.remove());
+    
+});
+
+
+
 
 
 
 start.addEventListener('click', function(){
+
+    let allDiv = document.querySelectorAll('.color');
+    
     failOrSuc.innerHTML = '...';
     failOrSuc.style.backgroundColor = 'yellow';
     failOrSuc.style.color = 'black';
+    let colors = [];
+
 
     let i = 0;
+    // debugger;
     allDiv.forEach(item =>{
         item.style.opacity = 1;
-        
         item.style.backgroundColor = getRgbColors();
         colors[i] = (item.style.backgroundColor);
         i++;
@@ -27,9 +55,19 @@ start.addEventListener('click', function(){
                 failOrSuc.style.backgroundColor = 'green';
                 failOrSuc.style.color = 'white';
 
-                setTimeout(function() {
-                alert('Congrats! You won!');
-                }, 1);
+                // setTimeout(function() {
+                // alert('Congrats! You won!');
+                // }, 1);
+                
+
+                Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Congrats!",
+                text: "You won!",
+                showConfirmButton: false,
+                timer: 1500
+                });
             }
             else{
                 failOrSuc.innerHTML = 'Failed';
@@ -44,7 +82,7 @@ start.addEventListener('click', function(){
     }
     
         )
-        let randNum = Math.round(Math.random() * 5);
+        let randNum = Math.round(Math.random() * colors.length);
         rgbNum.innerHTML = colors[randNum];
         console.log(colors);
 
@@ -64,6 +102,37 @@ function getRgbColors(){
 
 
 
+
+    hard.addEventListener('click', function(){
+        hard.style.backgroundColor = 'red';
+        hard.style.fontSize = '20px';
+        easy.style.fontSize = '10px';
+       
+    
+        Swal.fire({
+            title: "Are you sure?",
+            text: "This is hard mode!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, I want to play!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: "Let's go!",
+                text: "You can click 'ok' and then 'start'. Good luck!.",
+                // icon: "success"
+              });
+            }
+          });
+       
+     
+        
+
+
+    });
+    
 
 
 

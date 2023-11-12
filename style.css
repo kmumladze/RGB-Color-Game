@@ -69,6 +69,62 @@ body{
     display: none;
 }
 
-.show{
-    display: flex;
+/* .show{
+    display: initial;
+} */
+
+.easy-or-hard{
+    position: relative;
+    text-align: end;
+    margin-right: 100px;
+    
+}
+.easy-button{
+    background-color: rgb(180, 240, 103);
+    text-align: left;
+    /* padding-right: 32px; */
+    z-index: 1;
+    position: relative;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 5px;
+    color: rgb(49, 48, 48);
+    font-weight: bolder;
+
+}
+.easy-button:hover{
+    background-color: green;
+}
+
+.or-button{
+    background: #eee;
+    text-align: center;
+    padding: 13px;
+    border-radius: 48px;
+    border: 3px solid #fff;
+    margin: -16px;
+    font-weight: 800;
+    color: rgb(151, 149, 149);
+    z-index: 2;
+    position: relative;
+}
+.or-button:hover{
+    color: black;
+}
+
+.hard-button{
+    background-color: rgb(201, 74, 74);
+    text-align: right;
+    padding-left: 32px;
+    z-index: 1;
+    position: relative;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 5px;
+    color: rgb(49, 48, 48);
+    font-weight: bolder;
+}
+
+.hard-button:hover{
+    background-color: red;
 }
