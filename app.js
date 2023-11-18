@@ -10,9 +10,16 @@ let boxes2 = document.querySelectorAll('.boxes2');
 
 let remove = document.querySelectorAll('.remove1');
 let append = document.querySelectorAll('.append1');
+let tryCount = document.querySelector('.count')
 
 let gamedifficulty = false //hard
 // debugger; 
+
+start.addEventListener('click', function(){
+    isGame()
+})
+
+
 
 easy.addEventListener('click', function(){
     //make game diffulty easy
@@ -24,10 +31,28 @@ easy.addEventListener('click', function(){
         el.style.display = 'none');
     isGame()
     
+
 })
 
 
-// start.addEventListener('click', function(){
+hard.addEventListener('click', function(){
+    gamedifficulty = false;
+    hard.style.backgroundColor = 'red';
+    hard.style.fontSize = '20px';
+    easy.style.fontSize = '10px';
+    
+    remove.forEach(el =>{
+        el.style.display = 'block';
+    });
+    
+    isGame()
+
+
+
+});
+
+
+
 
 function isGame(){
   
@@ -51,6 +76,8 @@ function isGame(){
         item.style.backgroundColor = getRgbColors();
         colors.push(item.style.backgroundColor);
         
+        console.log(colors)
+
         item.addEventListener('click', function(){
             if(item.style.backgroundColor == rgbNum.innerHTML){
                 failOrSuc.innerHTML = 'Success';
@@ -67,6 +94,11 @@ function isGame(){
                 showConfirmButton: false,
                 timer: 2000
                 });
+
+                setTimeout(() => {  
+                    location.reload()}, "2000");
+                
+
             }
             else{
                 failOrSuc.innerHTML = 'Failed';
@@ -74,25 +106,44 @@ function isGame(){
                 failOrSuc.style.color = 'white';
                 item.style.opacity = 0;
                 // item.classList.toggle('hide')
+                tryCount.innerHTML--;
+                if(tryCount.innerHTML == 0){
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "You lose!",
+                        footer: '<a href="#">Why do I have this issue?</a>'
+                      });
+                      etTimeout(() => {  
+                        location.reload()}, "2000");
+                    
+    
+                }
+
                 
             }
+
+            setTimeout(() => {  
+                location.reload()}, "2000");
+            
         }
 
         )
     }
-    // allDiv.forEach(item =>{
-        
-    // }
     
-    //     )
         
-        let randNum = Math.round(Math.random() * colors.length);
+        let randNum = Math.round(Math.random() * (colors.length -1));
+        console.log(randNum)
+
         rgbNum.innerHTML = colors[randNum];
         console.log(colors);
+        
 
     
-// })
+
 }
+
+
 function getRgbColors(){
         let r = Math.round(Math.random() * 255);
         let g = Math.round(Math.random() * 255);
@@ -103,44 +154,11 @@ function getRgbColors(){
     }
 
 
-
-
-    hard.addEventListener('click', function(){
-        gamedifficulty = false;
-        hard.style.backgroundColor = 'red';
-        hard.style.fontSize = '20px';
-        easy.style.fontSize = '10px';
-        
-        remove.forEach(el =>{
-            el.style.display = 'block';
-        });
-            
-        isGame()
     
-    //     Swal.fire({
-    //         title: "Are you sure?",
-    //         text: "This is hard mode!",
-    //         icon: "warning",
-    //         showCancelButton: true,
-    //         confirmButtonColor: "#3085d6",
-    //         cancelButtonColor: "#d33",
-    //         confirmButtonText: "Yes, I want to play!"
-    //       }).then((result) => {
-    //         if (result.isConfirmed) {
-    //           Swal.fire({
-    //             title: "Let's go!",
-    //             text: "You can click 'ok' and then 'start'. Good luck!.",
-    //             // icon: "success"
-    //           });
-    //         }
-    //       });
-       
-     
-        
+
+   
 
 
-    });
-    
 
 
 
