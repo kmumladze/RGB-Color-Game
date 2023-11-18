@@ -53,7 +53,7 @@ body{
 }
 .boxes, .boxes2{
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
     margin-top: 25px;
