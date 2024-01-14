@@ -114,7 +114,7 @@ function isGame(){
                         text: "You lose!",
                         footer: '<a href="#">Why do I have this issue?</a>'
                       });
-                      etTimeout(() => {  
+                      setTimeout(() => {  
                         location.reload()}, "2000");
                     
     
@@ -123,8 +123,8 @@ function isGame(){
                 
             }
 
-            setTimeout(() => {  
-                location.reload()}, "2000");
+            // setTimeout(() => {  
+            //     location.reload()}, "2000");
             
         }
 
